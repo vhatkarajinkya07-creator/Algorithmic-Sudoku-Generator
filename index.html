@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sudoku</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playwrite+GB+S:wght@100..400&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="leftside">
+            <img src="pastime.png" alt="logo" id="logo">
+            <h1 class="name" id="title">SUDOKU</h1>
+        </div>
+
+        <div class="rightside">
+            <div class="btofnavbar" id="modeBtn">Dark</div>
+            <div class="btofnavbar" id="diffBtn">Difficulty ▾</div>
+            <div id="dropdownDiff">
+                <div class="btofnavbar" data-diff="easy">Easy</div>
+                <div class="btofnavbar" data-diff="medium">Medium</div>
+                <div class="btofnavbar" data-diff="hard">Hard</div>
+                <div class="btofnavbar" data-diff="extreme">Extreme</div>
+            </div>
+            <div class="btofnavbar" onclick="reset()">Reset</div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <h1 id="heading">SUDOKU</h1>
+        <p id="tagline">Sharpen Your Mind. Master the Logic.</p>
+    </section>
+
+    <main class="gridbox">
+
+        <div class="grid">
+            <div class="b3by3">
+                <div class="cells" data-row="1" data-col="1"></div><div class="cells" data-row="1" data-col="2" ></div><div class="cells" data-row="1" data-col="3"></div>
+                <div class="cells" data-row="2" data-col="1"></div><div class="cells" data-row="2" data-col="2" ></div><div class="cells" data-row="2" data-col="3"></div>
+                <div class="cells" data-row="3" data-col="1"></div><div class="cells" data-row="3" data-col="2" ></div><div class="cells" data-row="3" data-col="3"></div>
+            </div>
+            <div class="b3by3">
+                <div class="cells" data-row="1" data-col="4"></div><div class="cells" data-row="1" data-col="5" ></div><div class="cells" data-row="1" data-col="6"></div>
+                <div class="cells" data-row="2" data-col="4"></div><div class="cells" data-row="2" data-col="5" ></div><div class="cells" data-row="2" data-col="6"></div>
+                <div class="cells" data-row="3" data-col="4"></div><div class="cells" data-row="3" data-col="5" ></div><div class="cells" data-row="3" data-col="6"></div>
+            </div>
+            <div class="b3by3">
+                <div class="cells" data-row="1" data-col="7"></div><div class="cells" data-row="1" data-col="8" ></div><div class="cells" data-row="1" data-col="9"></div>
+                <div class="cells" data-row="2" data-col="7"></div><div class="cells" data-row="2" data-col="8" ></div><div class="cells" data-row="2" data-col="9"></div>
+                <div class="cells" data-row="3" data-col="7"></div><div class="cells" data-row="3" data-col="8" ></div><div class="cells" data-row="3" data-col="9"></div>
+            </div>
+            <div class="b3by3">
+                <div class="cells" data-row="4" data-col="1"></div><div class="cells" data-row="4" data-col="2" ></div><div class="cells" data-row="4" data-col="3"></div>
+                <div class="cells" data-row="5" data-col="1"></div><div class="cells" data-row="5" data-col="2" ></div><div class="cells" data-row="5" data-col="3"></div>
+                <div class="cells" data-row="6" data-col="1"></div><div class="cells" data-row="6" data-col="2" ></div><div class="cells" data-row="6" data-col="3"></div>
+            </div>
+            <div class="b3by3">
+                <div class="cells" data-row="4" data-col="4"></div><div class="cells" data-row="4" data-col="5" ></div><div class="cells" data-row="4" data-col="6"></div>
+                <div class="cells" data-row="5" data-col="4"></div><div class="cells" data-row="5" data-col="5" ></div><div class="cells" data-row="5" data-col="6"></div>
+                <div class="cells" data-row="6" data-col="4"></div><div class="cells" data-row="6" data-col="5" ></div><div class="cells" data-row="6" data-col="6"></div>
+            </div>
+            <div class="b3by3">
+                <div class="cells" data-row="4" data-col="7"></div><div class="cells" data-row="4" data-col="8" ></div><div class="cells" data-row="4" data-col="9"></div>
+                <div class="cells" data-row="5" data-col="7"></div><div class="cells" data-row="5" data-col="8" ></div><div class="cells" data-row="5" data-col="9"></div>
+                <div class="cells" data-row="6" data-col="7"></div><div class="cells" data-row="6" data-col="8" ></div><div class="cells" data-row="6" data-col="9"></div>
+            </div>
+            <div class="b3by3">
+                <div class="cells" data-row="7" data-col="1"></div><div class="cells" data-row="7" data-col="2" ></div><div class="cells" data-row="7" data-col="3"></div>
+                <div class="cells" data-row="8" data-col="1"></div><div class="cells" data-row="8" data-col="2" ></div><div class="cells" data-row="8" data-col="3"></div>
+                <div class="cells" data-row="9" data-col="1"></div><div class="cells" data-row="9" data-col="2" ></div><div class="cells" data-row="9" data-col="3"></div>
+            </div>
+            <div class="b3by3">
+                <div class="cells" data-row="7" data-col="4"></div><div class="cells" data-row="7" data-col="5" ></div><div class="cells" data-row="7" data-col="6"></div>
+                <div class="cells" data-row="8" data-col="4"></div><div class="cells" data-row="8" data-col="5" ></div><div class="cells" data-row="8" data-col="6"></div>
+                <div class="cells" data-row="9" data-col="4"></div><div class="cells" data-row="9" data-col="5" ></div><div class="cells" data-row="9" data-col="6"></div>
+            </div>
+            <div class="b3by3">
+                <div class="cells" data-row="7" data-col="7"></div><div class="cells" data-row="7" data-col="8" ></div><div class="cells" data-row="7" data-col="9"></div>
+                <div class="cells" data-row="8" data-col="7"></div><div class="cells" data-row="8" data-col="8" ></div><div class="cells" data-row="8" data-col="9"></div>
+                <div class="cells" data-row="9" data-col="7"></div><div class="cells" data-row="9" data-col="8" ></div><div class="cells" data-row="9" data-col="9"></div>
+            </div>
+            
+        </div>
+
+        <div class="progressbar">
+            <div class="wrong">Wrong : 0</div>
+            <div class="timer">Time : 00:00</div>
+        </div>
+
+    </main>
+    <div class="drag">
+        <div class="dragdrop">
+            <div class="button" id="button1" onclick="for_menu(1)">1</div>
+            <div class="button" id="button2" onclick="for_menu(2)">2</div>
+            <div class="button" id="button3" onclick="for_menu(3)">3</div>
+            <div class="button" id="button4" onclick="for_menu(4)">4</div>
+            <div class="button" id="button5" onclick="for_menu(5)">5</div>
+            <div class="button" id="button6" onclick="for_menu(6)">6</div>
+            <div class="button" id="button7" onclick="for_menu(7)">7</div>
+            <div class="button" id="button8" onclick="for_menu(8)">8</div>
+            <div class="button" id="button9" onclick="for_menu(9)">9</div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
