@@ -17,14 +17,6 @@ A web-based Sudoku application built using HTML, CSS, and JavaScript. The projec
 * CSS
 * JavaScript
 
-## Live Demo
-
-[Add Deployment Link]
-
-## GitHub Repository
-
-[Add GitHub Link]
-
 ## Getting Started
 
 ### Clone the Repository
